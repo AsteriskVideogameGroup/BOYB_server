@@ -1,7 +1,6 @@
 import Pyro4
 
-from foundations.geometry.shapedimension import Dimension
-from foundations.network.client import Client
+from foundations.network.clienthandling.client import Client
 from foundations.oophelpers.singleton import SingletonMetaclass
 from model.gamemanageusecase.game.matchmaker import MatchMaker
 from model.gamemanageusecase.game.matchmakerfactory import MatchMakerFactory

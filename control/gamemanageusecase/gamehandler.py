@@ -1,10 +1,10 @@
+import time
 import uuid
 from threading import Thread
 
 import Pyro4
-import time
 
-from foundations.network.client import Client
+from foundations.network.clienthandling.client import Client
 from model.gamemanageusecase.characters.bob import Bob
 from model.gamemanageusecase.characters.bobbuilder import BobBuilder
 from model.gamemanageusecase.game.game import Game

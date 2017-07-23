@@ -1,6 +1,5 @@
 from control.gamemanageusecase.gamehandler import GameHandler
-from foundations.network.clientbinder import ClientBinder
-from foundations.network.client import Client
+from foundations.network.clienthandling.client import Client
 from foundations.network.corba.corbamanagerfactory import CorbaManagerFactory
 from foundations.network.corba.icorbamanager import ICorbaManager
 from model.gamemanageusecase.game.game import Game

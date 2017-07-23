@@ -1,9 +1,6 @@
-from threading import Thread
-
 from control.gamemanageusecase.gamehandler import GameHandler
 from control.gamemanageusecase.matchmakinghandler import MatchMakingHandler
-from foundations.geometry.shapedimension import Dimension
-from foundations.network.client import Client
+from foundations.network.clienthandling.client import Client
 from foundations.network.corba.corbamanagerfactory import CorbaManagerFactory
 from foundations.network.corba.icorbamanager import ICorbaManager
 
