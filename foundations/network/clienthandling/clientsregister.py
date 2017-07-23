@@ -3,7 +3,7 @@ from foundations.network.corba.icorbamanager import ICorbaManager
 from foundations.oophelpers.singleton import SingletonMetaclass
 
 
-class ClientRegister(metaclass=SingletonMetaclass):
+class ClientsRegister(metaclass=SingletonMetaclass):
     def __init__(self):
         self._registeredclients: dict = dict()
         self._corbamanager: ICorbaManager = None

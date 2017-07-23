@@ -7,7 +7,7 @@ class ICorbaManager(metaclass=abc.ABCMeta):
         pass
 
     @abc.abstractmethod
-    def remotize(self, obj: object, objname: str) -> object:
+    def remotize(self, obj: object, objname: str = None) -> str:
         pass
 
     @abc.abstractmethod
