@@ -26,8 +26,16 @@ class PyroCorbaManager(ICorbaManager):
     def getFromSystem(self, objectid: str):
         return Pyro4.Proxy("PYRONAME:{0}".format(objectid))
 
-    def remotize(self, obj: object, objname: str) -> object:
+    def remotize(self, obj: object, objname: str = None) -> str:
+
+        # if objname is None:
         uri = self._daemon.register(obj)
+
+        if objname is None:
+            objname = str(uri.object)
+
         self._ns.register(objname, uri)
-        return obj
+
+        return objname
+
 
