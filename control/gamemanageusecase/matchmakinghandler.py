@@ -1,7 +1,7 @@
 import Pyro4
 
 from foundations.network.clienthandling.client import Client
-from foundations.network.clienthandling.clientregister import ClientRegister
+from foundations.network.clienthandling.clientregister import ClientsRegister
 from foundations.oophelpers.singleton import SingletonMetaclass
 from model.gamemanageusecase.game.matchmaker import MatchMaker
 from model.gamemanageusecase.game.matchmakerfactory import MatchMakerFactory
@@ -17,5 +17,5 @@ class MatchMakingHandler(metaclass=SingletonMetaclass):
 
     def makeNewGame(self, clientid: str, modeid: str, isranked: bool): # TODO deve essere quello buono
         matchm: MatchMaker = MatchMakerFactory().getMatchMaker(modeid)  # retrieve del matchmaker di modalità
-        client: Client = ClientRegister().get(clientid)
+        client: Client = ClientsRegister().get(clientid)
         matchm.enqueuePlayer(client, isranked)
