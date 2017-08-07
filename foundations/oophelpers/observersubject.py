@@ -4,7 +4,7 @@ import abc
 class Subject(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
-    def registerEventListener(self, eventid: str, callback: callable):
+    def registerEventListener(self, callback: callable):
         pass
 
     @abc.abstractmethod
