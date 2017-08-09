@@ -1,3 +1,5 @@
+from foundations.dao.idaoabstractfactory import IDAOAbstractFactory
+from foundations.dao.imodedao import IModeDAO
 from foundations.geometry.shapedimension import Dimension
 from foundations.oophelpers.singleton import SingletonMetaclass
 from model.gamemanageusecase.modes.mode import GameMode
@@ -9,6 +11,7 @@ class ModeBuilder(metaclass=SingletonMetaclass):
     def __init__(self):
         """"""
         self._buildedmodes = {}
+        self._daofactory: IDAOAbstractFactory = None
 
     def get(self, modeid: str) -> GameMode:
         mode: GameMode = self._buildedmodes.get(modeid)
@@ -20,8 +23,14 @@ class ModeBuilder(metaclass=SingletonMetaclass):
         return mode
 
     def _buid(self, modeid: str) -> GameMode:
-        ""  # TODO per ora ci accontentiamo di un caricamento solo locale
+        modesave: IModeDAO = self._daofactory.getModeDAO()
+        return modesave.getByID("pepito")  # TODO rimuovere
+        # return modesave.getByID(modeid)
 
-        mapsize: Dimension = Dimension(4, 6)
-        newmode: GameMode = GameMode("aziz", mapsize, 4, 300, "ClassicMapElementDisposalStrategy", "ClassicObjectFactory")
-        return newmode
+    @property
+    def daofactory(self) -> IDAOAbstractFactory:
+        return self._daofactory
+
+    @daofactory.setter
+    def daofactory(self, factory: IDAOAbstractFactory):
+        self._daofactory = factory

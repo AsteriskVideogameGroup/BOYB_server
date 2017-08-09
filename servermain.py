@@ -25,10 +25,12 @@ if __name__ == "__main__":
     print(matchmakinghandler.clientsregister)
     print(matchmakinghandler.matchmakingfactory)
 
-    # TODO testing
     # inizializzazione database
     daof: IDAOAbstractFactory = container.getObject("daofactory")
     daof.init()
+
+    '''# TODO testing
+    
 
     mapsize: Dimension = Dimension(22, 33)
     newmode: GameMode = GameMode("pepito", mapsize, 4, 300, "ClassicMapElementDisposalStrategy", "ClassicObjectFactory")
@@ -41,7 +43,7 @@ if __name__ == "__main__":
     print(mode)
 
 
-    #TODO testing
+    #TODO testing'''
 
 
     print(corba.remotize(matchmakinghandler, "matchmakinghandler"))

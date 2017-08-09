@@ -30,7 +30,12 @@
   "modebuilder": {
     "module": "model.gamemanageusecase.modes.modebuilder",
     "class": "ModeBuilder",
-    "properties" : []
+    "properties" : [
+      {
+        "name": "daofactory",
+        "ref": "daofactory"
+      }
+    ]
   },
 
   "matchmakingfactory": {
@@ -55,7 +60,12 @@
   "playerbinder": {
     "module": "model.gamemanageusecase.players.playerbinder",
     "class": "PlayerBinder",
-    "properties": []
+    "properties": [
+      {
+        "name": "daofactory",
+        "ref": "daofactory"
+      }
+    ]
   },
 
   "matchmakinghandler": {
