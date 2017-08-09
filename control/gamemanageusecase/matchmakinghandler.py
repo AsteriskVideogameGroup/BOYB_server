@@ -11,11 +11,34 @@ from model.gamemanageusecase.game.matchmakerfactory import MatchMakerFactory
 @Pyro4.expose
 class MatchMakingHandler(metaclass=SingletonMetaclass):
 
+    def __init__(self):
+        self._matchmakingfactory: MatchMakerFactory = None
+        self._clientsregister: ClientsRegister = None
+
     '''def makeNewGame(self, client: Client, modeid: str, isranked: bool):
         matchm: MatchMaker = MatchMakerFactory().getMatchMaker(modeid)  # retrieve del matchmaker di modalità
         matchm.enqueuePlayer(client, isranked)'''
 
-    def makeNewGame(self, clientid: str, modeid: str, isranked: bool): # TODO deve essere quello buono
-        matchm: MatchMaker = MatchMakerFactory().getMatchMaker(modeid)  # retrieve del matchmaker di modalità
-        client: Client = ClientsRegister().get(clientid)
+    def makeNewGame(self, clientid: str, modeid: str, isranked: bool):
+        matchm: MatchMaker = self._matchmakingfactory.getMatchMaker(modeid)  # retrieve del matchmaker di modalità
+        client: Client = self._clientsregister.get(clientid)
         matchm.enqueuePlayer(client, isranked)
+
+    @property
+    def matchmakingfactory(self) -> MatchMakerFactory:
+        return self._matchmakingfactory
+
+    @matchmakingfactory.setter
+    def matchmakingfactory(self, factory: MatchMakerFactory) -> None:
+        self._matchmakingfactory = factory
+
+    @property
+    def clientsregister(self) -> ClientsRegister:
+        return self._clientsregister
+
+    @clientsregister.setter
+    def clientsregister(self, register: ClientsRegister) -> None:
+        self._clientsregister = register
+
+
+

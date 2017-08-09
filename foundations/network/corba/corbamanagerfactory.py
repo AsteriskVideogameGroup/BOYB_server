@@ -14,3 +14,11 @@ class CorbaManagerFactory(metaclass=SingletonMetaclass):
         self._corbamanager.init()  # TODO l'inizializzazione deve essere fatta da file di conf
 
         return self._corbamanager
+
+    @property
+    def corbamanager(self) -> ICorbaManager:
+        return self._corbamanager
+
+    @corbamanager.setter
+    def corbamanager(self, manager: ICorbaManager) -> None:
+        self._corbamanager = manager

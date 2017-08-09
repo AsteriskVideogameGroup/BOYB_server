@@ -1,0 +1,77 @@
+{
+  "pyromanager": {
+    "module": "foundations.network.corba.pyrocorbamanager",
+    "class": "PyroCorbaManager",
+    "properties" : []
+  },
+
+  "corbamangerfactory":{
+    "module": "foundations.network.corba.corbamanagerfactory",
+    "class": "CorbaManagerFactory",
+    "properties" : [
+      {
+        "name": "corbamanager",
+        "ref": "pyromanager"
+      }
+    ]
+  },
+
+  "clientregister": {
+    "module": "foundations.network.clienthandling.clientregister",
+    "class": "ClientsRegister",
+    "properties" : [
+      {
+        "name": "corbamanager",
+        "ref": "pyromanager"
+      }
+    ]
+  },
+
+  "modebuilder": {
+    "module": "model.gamemanageusecase.modes.modebuilder",
+    "class": "ModeBuilder",
+    "properties" : []
+  },
+
+  "matchmakingfactory": {
+    "module": "model.gamemanageusecase.game.matchmakerfactory",
+    "class": "MatchMakerFactory",
+    "properties" : [
+      {
+        "name": "modebuilder",
+        "ref": "modebuilder"
+      },
+      {
+        "name": "corbamanagerfactory",
+        "ref": "corbamangerfactory"
+      },
+      {
+        "name": "playerbinder",
+        "ref": "playerbinder"
+      }
+    ]
+  },
+
+  "playerbinder": {
+    "module": "model.gamemanageusecase.players.playerbinder",
+    "class": "PlayerBinder",
+    "properties": []
+  },
+
+  "matchmakinghandler": {
+    "module": "control.gamemanageusecase.matchmakinghandler",
+    "class": "MatchMakingHandler",
+    "properties" : [
+      {
+        "name": "clientsregister",
+        "ref": "clientregister"
+      },
+      {
+        "name": "matchmakingfactory",
+        "ref": "matchmakingfactory"
+      }
+
+    ]
+  }
+
+}

@@ -13,6 +13,8 @@ class MatchMaker:
     def __init__(self, mode: GameMode):
         self._unrankedplayerqueue: list = list()  # usiamo un dict per motivi di efficienza
         self._gamemode: GameMode = mode
+        self._corbamanagerfactory: CorbaManagerFactory = None
+        self._playerbinder: PlayerBinder = None
 
     def enqueuePlayer(self, client: Client, gameranked: bool):
 
@@ -35,7 +37,7 @@ class MatchMaker:
 
             for i in range(0, self._gamemode.numplayers):
                 client: Client = self._unrankedplayerqueue.pop(0)
-                player: Player = PlayerBinder().getPlayerByID(client.playerid)
+                player: Player = self._playerbinder.getPlayerByID(client.playerid)
                 newroom.join(player)
                 clientproxies.append(client)
 
@@ -44,7 +46,7 @@ class MatchMaker:
             newgamehandler: GameHandler = GameHandler(newgame, clientproxies)
 
             # newgamehandler deve essere remoto
-            corba: ICorbaManager = CorbaManagerFactory().getCorbaManager()
+            corba: ICorbaManager = self._corbamanagerfactory.getCorbaManager()
             corba.remotize(newgamehandler, newgamehandler.gamename)
 
             # notifica tutti i client
@@ -57,3 +59,19 @@ class MatchMaker:
 
             # inizia countdown selezione bob
             newgamehandler.startBobChooseCountdown()
+
+    @property
+    def corbamanagerfactory(self) -> CorbaManagerFactory:
+        return self._corbamanagerfactory
+
+    @corbamanagerfactory.setter
+    def corbamanagerfactory(self, manager: CorbaManagerFactory) -> None:
+        self._corbamanagerfactory = manager
+
+    @property
+    def playerbinder(self) -> PlayerBinder:
+        return self._playerbinder
+
+    @playerbinder.setter
+    def playerbinder(self, binder: PlayerBinder) -> None:
+        self._playerbinder = binder
