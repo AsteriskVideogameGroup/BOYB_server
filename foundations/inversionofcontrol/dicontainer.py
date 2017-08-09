@@ -2,7 +2,7 @@ import json
 from importlib import import_module
 from typing import Dict
 
-from foundations.dependencyinjection.idicontainer import IDependencyInjectionContainer
+from foundations.inversionofcontrol.idicontainer import IDependencyInjectionContainer
 
 
 class DepInjContainer(IDependencyInjectionContainer):
