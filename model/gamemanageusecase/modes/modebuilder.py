@@ -25,8 +25,7 @@ class ModeBuilder(metaclass=SingletonMetaclass):
 
     def _buid(self, modeid: str) -> GameMode:
         modesave: IModeDAO = self._daofactory.getModeDAO()
-        return modesave.getByID(modeid)  # TODO rimuovere
-        # return modesave.getByID(modeid)
+        return modesave.getByID(modeid)
 
     @property
     def daofactory(self) -> IDAOAbstractFactory:

@@ -10,10 +10,7 @@ class CorbaManagerFactory(metaclass=SingletonMetaclass):
         self._corbamanager: ICorbaManager = None
 
     def getCorbaManager(self) -> ICorbaManager:
-        self._corbamanager = PyroCorbaManager()
-        self._corbamanager.init()  # TODO l'inizializzazione deve essere fatta da file di conf
-
-        return self._corbamanager
+        return self.corbamanager
 
     @property
     def corbamanager(self) -> ICorbaManager:
@@ -22,3 +19,4 @@ class CorbaManagerFactory(metaclass=SingletonMetaclass):
     @corbamanager.setter
     def corbamanager(self, manager: ICorbaManager) -> None:
         self._corbamanager = manager
+        self._corbamanager.init()

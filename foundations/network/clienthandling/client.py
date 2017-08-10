@@ -15,14 +15,12 @@ class Client(Subject):
     GAMEREADYEVENT: str = "gameready\""""
 
     def __init__(self):
-        #self._userid: str = userid
         self._clientid: str = None
 
         self._gamehandlerid: str = None
 
         self._eventlisteners: List[Callable[[object, GameMessages, Dict[str, any]], None]] = list()
 
-        # TODO user id deve essere impostato mediante login
         self._userid = str(uuid.uuid4())
 
     @property
