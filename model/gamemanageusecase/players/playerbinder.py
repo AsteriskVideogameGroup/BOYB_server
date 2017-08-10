@@ -12,12 +12,8 @@ class PlayerBinder(metaclass=SingletonMetaclass):
         self._retrievedusers: Dict[str, Player] = dict()
 
     def getPlayerByID(self, userid: str) -> Player:
-        """"""  # TODO devi leggere dal database
         dao: IPlayerDAO = self._daofactory.getPlayerDAO()
-        # TODO implementare DAO
-        # player: Player = dao.getByID(userid)
-        # return dao.getByID("pepito")  # TODO rimuovere
-        return Player(userid)
+        return dao.getByID(userid)
 
     @property
     def daofactory(self) -> IDAOAbstractFactory:
