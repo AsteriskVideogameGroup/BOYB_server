@@ -1,5 +1,6 @@
 from foundations.network.corba.corbamanagerfactory import CorbaManagerFactory
 from foundations.oophelpers.singleton import SingletonMetaclass
+from model.gamemanageusecase.characters.bobbuilder import BobBuilder
 from model.gamemanageusecase.game.matchmaker import MatchMaker
 from model.gamemanageusecase.modes.mode import GameMode
 from model.gamemanageusecase.modes.modebuilder import ModeBuilder
@@ -14,6 +15,7 @@ class MatchMakerFactory(metaclass=SingletonMetaclass):
         self._modebuilder: ModeBuilder = None
         self._corbamanagerfactory: CorbaManagerFactory = None
         self._playerbinder: PlayerBinder = None
+        self._bobbuilder: BobBuilder = None
 
     def getMatchMaker(self, modeid: str):
         matchmaker: MatchMaker = self._matchmakers.get(modeid)
@@ -24,6 +26,7 @@ class MatchMakerFactory(metaclass=SingletonMetaclass):
             matchmaker = MatchMaker(mode)
             matchmaker.corbamanagerfactory = self._corbamanagerfactory
             matchmaker.playerbinder = self._playerbinder
+            matchmaker.bobbuilder = self._bobbuilder
 
             self._matchmakers[modeid] = matchmaker
 
@@ -36,6 +39,14 @@ class MatchMakerFactory(metaclass=SingletonMetaclass):
     @modebuilder.setter
     def modebuilder(self, value: ModeBuilder) -> None:
         self._modebuilder = value
+
+    @property
+    def bobbuilder(self) -> BobBuilder:
+        return self._bobbuilder
+
+    @bobbuilder.setter
+    def bobbuilder(self, value: BobBuilder) -> None:
+        self._bobbuilder = value
 
     @property
     def corbamanagerfactory(self) -> CorbaManagerFactory:

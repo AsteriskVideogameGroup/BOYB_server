@@ -53,6 +53,10 @@
       {
         "name": "playerbinder",
         "ref": "playerbinder"
+      },
+      {
+        "name": "bobbuilder",
+        "ref": "bobbuilder"
       }
     ]
   },
@@ -93,6 +97,28 @@
         "value": "mongodb://localhost:27017/byobdb"
       }
 
+    ]
+  },
+
+  "bobcatalog": {
+    "module": "model.gamemanageusecase.characters.bobcatalog",
+    "class": "BobCatalog",
+    "properties" : [
+      {
+        "name": "daofactory",
+        "ref": "daofactory"
+      }
+    ]
+  },
+
+  "bobbuilder": {
+    "module": "model.gamemanageusecase.characters.bobbuilder",
+    "class": "BobBuilder",
+    "properties" : [
+      {
+        "name": "catalog",
+        "ref": "bobcatalog"
+      }
     ]
   }
 

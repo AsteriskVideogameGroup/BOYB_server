@@ -12,11 +12,12 @@ from model.gamemanageusecase.players.player import Player
 
 
 class GameHandler:
-    def __init__(self, newgame: Game, clientproxies: list):
+    def __init__(self, newgame: Game, clientproxies: list, bobbuilder: BobBuilder):
         self._uniquename = str(uuid.uuid4())
         self._currentgame: Game = newgame
         self._mapready: bool = False
         self._clients: list = clientproxies
+        self._bobbuilder: BobBuilder = bobbuilder
 
     @property
     def gamename(self) -> str:
@@ -27,7 +28,7 @@ class GameHandler:
 
     @Pyro4.expose
     def chooseBob(self, playerid: str, bobid: str = "random"):
-        newbob: Bob = BobBuilder().build(bobid)
+        newbob: Bob = self._bobbuilder.build(bobid)
         self._currentgame.assignBobToPlayer(newbob, playerid)
 
     def _bobSelectionDaemon(self):
