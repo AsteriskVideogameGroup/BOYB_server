@@ -89,7 +89,7 @@
   },
 
   "daofactory": {
-    "module": "foundations.dao.pymdm.daofactory",
+    "module": "foundations.dao.pymodm.daofactory",
     "class": "DAOFactory",
     "properties" : [
       {

@@ -1,9 +1,14 @@
+from typing import List
+
+from pymodm.queryset import QuerySet
+
 from foundations.dao.imodedao import IModeDAO
-from foundations.dao.pymdm.savingadapters.gamemodepersistenceadapter import GameModePersistenceAdapter
+from foundations.dao.pymodm.savingadapters.gamemodepersistenceadapter import GameModePersistenceAdapter
 from model.gamemanageusecase.modes.mode import GameMode
 
 
 class ModeDAO(IModeDAO):
+
     def update(self, mode: GameMode) -> GameMode:
         pass
 
@@ -23,3 +28,13 @@ class ModeDAO(IModeDAO):
 
     def getByID(self, identifier: str) -> GameMode:
         return GameModePersistenceAdapter.objects.raw({'_id': identifier}).first().get()
+
+    def getAll(self) -> List[GameMode]:
+        listmodes: List[GameMode] = list()
+        for modepersistent in GameModePersistenceAdapter.objects.all():
+            modepersistent: GameModePersistenceAdapter
+            listmodes.append(modepersistent.get())
+
+        return listmodes
+
+
