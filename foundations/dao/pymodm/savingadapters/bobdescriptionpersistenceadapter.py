@@ -10,6 +10,7 @@ class BobDescriptionPersistenceAdapter(MongoModel):
     lives = fields.IntegerField()
     speed = fields.FloatField()
     specialpowerid = fields.CharField()
+    rangereachable = fields.IntegerField()
 
     def get(self) -> BobDescription:
         bobdescription: BobDescription = BobDescription()
@@ -19,5 +20,6 @@ class BobDescriptionPersistenceAdapter(MongoModel):
         bobdescription.contemporarybombs = self.bombs
         bobdescription.speed = self.speed
         bobdescription.specialpower = self.specialpowerid
+        bobdescription.range = self.rangereachable
 
         return bobdescription

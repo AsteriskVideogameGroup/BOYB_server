@@ -1,5 +1,4 @@
 class BobDescription:
-
     def __init__(self):
         self._id: str = None
         self._damage: int = 0
@@ -7,6 +6,7 @@ class BobDescription:
         self._basenumlives: int = 1
         self._speed: float = 0
         self._idspecialpower: str = None
+        self._range: int = 0
 
     @property
     def id(self) -> str:
@@ -55,6 +55,13 @@ class BobDescription:
     @specialpower.setter
     def specialpower(self, power: int):
         self._idspecialpower = power
+
+    @property
+    def range(self) -> int:
+        return self._range
+    @range.setter
+    def range(self, val: int):
+        self._range = val
 
     def __str__(self):
         return "questa è una descrizione"

@@ -19,7 +19,8 @@ class BobDescriptionDAO(IBobDescriptionDAO):
             bombs=description.contemporarybombs,
             lives=description.baselives,
             speed=description.speed,
-            specialpowerid=description.specialpower
+            specialpowerid=description.specialpower,
+            rangereachable=description.range
         )
 
         descriptiontosave.save()

@@ -16,7 +16,7 @@ if __name__ == "__main__":
     daofactory: IDAOAbstractFactory = container.getObject("daofactory")
     daofactory.init()
 
-    # creazione descrittore bob
+    # creazione descrittori bob
     bobdescription: BobDescription = BobDescription()
     bobdescription.id = "classic_bob"
     bobdescription.damage = 1
@@ -24,6 +24,16 @@ if __name__ == "__main__":
     bobdescription.contemporarybombs = 1
     bobdescription.speed = 6
     bobdescription.specialpower = "none"
+    bobdescription.range = 1
+
+    bobdescription: BobDescription = BobDescription()
+    bobdescription.id = "king_bob"
+    bobdescription.damage = 1
+    bobdescription.baselives = 5
+    bobdescription.contemporarybombs = 1
+    bobdescription.speed = 6
+    bobdescription.specialpower = "none"
+    bobdescription.range = 2
 
     # creazione oggetti player da salvare nel DB
     player1: Player = Player("p1")

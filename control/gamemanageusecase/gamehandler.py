@@ -33,7 +33,7 @@ class GameHandler:
 
     def _bobSelectionDaemon(self):
 
-        maxwaitime: float = 10  # TODO questo deve essere preso da un file di configurazione
+        maxwaitime: float = 20  # TODO questo deve essere preso da un file di configurazione
 
         steptime: float = 0.1
         aweitedtime: float = 0
