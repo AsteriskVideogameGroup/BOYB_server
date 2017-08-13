@@ -14,58 +14,17 @@ class Client(Subject):
     MAPREADYEVENT: str = "mapready"
     GAMEREADYEVENT: str = "gameready\""""
 
-    def __init__(self):
-        self._clientid: str = None
-
-        self._gamehandlerid: str = None
-
-        self._eventlisteners: List[Callable[[object, GameMessages, Dict[str, any]], None]] = list()
-
-        self._userid = str(uuid.uuid4())
-
-    @property
-    def clientid(self) -> str:
-        return self._clientid
-
-    @clientid.setter
-    def clientid(self, value: str):
-        self._clientid = value
-
-    @property
-    def playerid(self) -> str:
-        return self._userid
-
-    @playerid.setter
-    def playerid(self, value: str):
-        self._userid = value
-
-    @property
-    def gamehandler(self) -> str:
-        return self._gamehandlerid
-
-    @gamehandler.setter
-    def gamehandler(self, gamehandleid: str):
-        self._gamehandlerid = gamehandleid
-
     def notifyGameReady(self, gamehandlerid: str):
-        self.gamehandler = gamehandlerid
-        self._notify(GameMessages.GAMECREATED)
+        pass
 
     def notifyMapReady(self):
-        self._notify(GameMessages.MAPREADY)
+        pass
 
     def detachEventListerners(self, callback: Callable[[object, GameMessages, Dict[str, any]], None]):
-        self._eventlisteners.remove(callback)
+        pass
 
     def registerEventListener(self, callback: Callable[[object, GameMessages, Dict[str, any]], None]):
-        self._eventlisteners.append(callback)
+        pass
 
     def _notify(self, message: GameMessages):
-
-        def threadrun(*args):
-            operation: callable = args[0]
-            operation(message)
-
-        for callback in self._eventlisteners:
-            callback: callable
-            Thread(target=threadrun, args=(callback, None)).run()
+        pass
