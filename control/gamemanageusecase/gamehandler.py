@@ -12,6 +12,9 @@ from model.gamemanageusecase.players.player import Player
 
 
 class GameHandler:
+
+    _CHOOSETIME: int = 20
+
     def __init__(self, newgame: Game, clientproxies: list, bobbuilder: BobBuilder):
         self._uniquename = str(uuid.uuid4())
         self._currentgame: Game = newgame
@@ -30,21 +33,23 @@ class GameHandler:
     def chooseBob(self, playerid: str, bobid: str = "random"):
         newbob: Bob = self._bobbuilder.build(bobid)
         self._currentgame.assignBobToPlayer(newbob, playerid)
+        print("Ho assegnato bob {0} al player {1}".format(bobid, playerid))
 
     def _bobSelectionDaemon(self):
-
-        maxwaitime: float = 20  # TODO questo deve essere preso da un file di configurazione
 
         steptime: float = 0.1
         aweitedtime: float = 0
 
         numplayers: int = self._currentgame.players.lenght
 
-        someonehasntabob: bool = len(self._currentgame.bobs) < numplayers
+        loopcondition: bool = True
+        someonehasntabob: bool = True
 
-        while aweitedtime <= maxwaitime and someonehasntabob:
+        while loopcondition:
             time.sleep(steptime)
             aweitedtime += steptime
+            someonehasntabob = (len(self._currentgame.bobs) < numplayers)
+            loopcondition = someonehasntabob and aweitedtime <= GameHandler._CHOOSETIME
 
         if someonehasntabob:  # se qualche giocatore non ha ancora un bob
             bobowners: list = list()  # lista dei player che hanno un bob
