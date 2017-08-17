@@ -1,6 +1,4 @@
-import uuid
-from threading import Thread
-from typing import List, Callable, Dict
+from typing import Callable, Dict
 
 import Pyro4
 
@@ -24,7 +22,4 @@ class Client(Subject):
         pass
 
     def registerEventListener(self, callback: Callable[[object, GameMessages, Dict[str, any]], None]):
-        pass
-
-    def _notify(self, message: GameMessages):
         pass

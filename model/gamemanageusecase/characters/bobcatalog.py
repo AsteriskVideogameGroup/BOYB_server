@@ -1,4 +1,4 @@
-from foundations.dao.idaoabstractfactory import IDAOAbstractFactory
+from foundations.persistence.idaoabstractfactory import IDAOAbstractFactory
 from foundations.oophelpers.singleton import SingletonMetaclass
 from model.gamemanageusecase.characters.bobdescription import BobDescription
 

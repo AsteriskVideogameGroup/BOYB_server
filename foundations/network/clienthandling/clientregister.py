@@ -10,9 +10,6 @@ class ClientsRegister(metaclass=SingletonMetaclass):
         self._registeredclients: Dict[str, Client] = dict()
         self._corbamanager: ICorbaManager = None
 
-    '''def init(self, manager: ICorbaManager):
-        self._corbamanager = manager'''
-
     def init(self):
         pass
 

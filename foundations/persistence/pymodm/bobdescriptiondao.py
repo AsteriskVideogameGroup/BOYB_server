@@ -1,7 +1,7 @@
 from typing import List
 
-from foundations.dao.ibobdescriptiondao import IBobDescriptionDAO
-from foundations.dao.pymodm.savingadapters.bobdescriptionpersistenceadapter import BobDescriptionPersistenceAdapter
+from foundations.persistence.ibobdescriptiondao import IBobDescriptionDAO
+from foundations.persistence.pymodm.savingadapters.bobdescriptionpersistenceadapter import BobDescriptionPersistenceAdapter
 from model.gamemanageusecase.characters.bobdescription import BobDescription
 
 

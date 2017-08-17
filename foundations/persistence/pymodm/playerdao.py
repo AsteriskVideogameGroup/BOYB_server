@@ -1,5 +1,5 @@
-from foundations.dao.iplayerdao import IPlayerDAO
-from foundations.dao.pymodm.savingadapters.playerpersistenceadapter import PlayerPersistenceAdapter
+from foundations.persistence.iplayerdao import IPlayerDAO
+from foundations.persistence.pymodm.savingadapters.playerpersistenceadapter import PlayerPersistenceAdapter
 from model.gamemanageusecase.players.player import Player
 
 

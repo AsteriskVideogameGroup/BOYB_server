@@ -2,8 +2,8 @@ from typing import List
 
 from pymodm.queryset import QuerySet
 
-from foundations.dao.imodedao import IModeDAO
-from foundations.dao.pymodm.savingadapters.gamemodepersistenceadapter import GameModePersistenceAdapter
+from foundations.persistence.imodedao import IModeDAO
+from foundations.persistence.pymodm.savingadapters.gamemodepersistenceadapter import GameModePersistenceAdapter
 from model.gamemanageusecase.modes.mode import GameMode
 
 

@@ -1,7 +1,7 @@
 from control.gamemanageusecase.matchmakinghandler import MatchMakingHandler
-from foundations.dao.ibobdescriptiondao import IBobDescriptionDAO
-from foundations.dao.idaoabstractfactory import IDAOAbstractFactory
-from foundations.dao.imodedao import IModeDAO
+from foundations.persistence.ibobdescriptiondao import IBobDescriptionDAO
+from foundations.persistence.idaoabstractfactory import IDAOAbstractFactory
+from foundations.persistence.imodedao import IModeDAO
 from foundations.inversionofcontrol.ioccontainer import InversionOfControlContainer
 from foundations.network.corba.corbamanagerfactory import CorbaManagerFactory
 from foundations.network.corba.icorbamanager import ICorbaManager
@@ -21,8 +21,8 @@ if __name__ == "__main__":
     daofactory.init()
 
     # TODO test
-    #dao: IBobDescriptionDAO = daofactory.getBobDescriptionDAO()
-    #print(dao.getAll())
+    #persistence: IBobDescriptionDAO = daofactory.getBobDescriptionDAO()
+    #print(persistence.getAll())
     # TODO test
 
     # inizializzazione ascoltatore di matchaking

@@ -1,5 +1,5 @@
-from foundations.dao.idaoabstractfactory import IDAOAbstractFactory
-from foundations.dao.imodedao import IModeDAO
+from foundations.persistence.idaoabstractfactory import IDAOAbstractFactory
+from foundations.persistence.imodedao import IModeDAO
 from foundations.geometry.shapedimension import Dimension
 from foundations.oophelpers.singleton import SingletonMetaclass
 from model.gamemanageusecase.modes.mode import GameMode

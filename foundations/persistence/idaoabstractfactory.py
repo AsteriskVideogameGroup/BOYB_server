@@ -1,8 +1,8 @@
 import abc
 
-from foundations.dao.ibobdescriptiondao import IBobDescriptionDAO
-from foundations.dao.imodedao import IModeDAO
-from foundations.dao.iplayerdao import IPlayerDAO
+from foundations.persistence.ibobdescriptiondao import IBobDescriptionDAO
+from foundations.persistence.imodedao import IModeDAO
+from foundations.persistence.iplayerdao import IPlayerDAO
 
 
 class IDAOAbstractFactory(metaclass=abc.ABCMeta):

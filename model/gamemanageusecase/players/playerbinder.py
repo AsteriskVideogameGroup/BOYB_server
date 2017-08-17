@@ -1,7 +1,7 @@
 from typing import Dict
 
-from foundations.dao.idaoabstractfactory import IDAOAbstractFactory
-from foundations.dao.iplayerdao import IPlayerDAO
+from foundations.persistence.idaoabstractfactory import IDAOAbstractFactory
+from foundations.persistence.iplayerdao import IPlayerDAO
 from foundations.oophelpers.singleton import SingletonMetaclass
 from model.gamemanageusecase.players.player import Player
 
