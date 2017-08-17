@@ -1,3 +1,5 @@
+from typing import List
+
 from control.gamemanageusecase.gamehandler import GameHandler
 from foundations.network.clienthandling.client import Client
 from foundations.network.corba.corbamanagerfactory import CorbaManagerFactory
@@ -12,7 +14,7 @@ from model.gamemanageusecase.players.room import PlayerRoom
 
 class MatchMaker:
     def __init__(self, mode: GameMode):
-        self._unrankedplayerqueue: list = list()  # usiamo un dict per motivi di efficienza
+        self._unrankedplayerclientqueue: List[Client] = list()  # usiamo un dict per motivi di efficienza
         self._gamemode: GameMode = mode
         self._corbamanagerfactory: CorbaManagerFactory = None
         self._playerbinder: PlayerBinder = None
@@ -21,7 +23,7 @@ class MatchMaker:
     def enqueuePlayer(self, client: Client, gameranked: bool):
 
         if gameranked is False:
-            self._unrankedplayerqueue.append(client)
+            self._unrankedplayerclientqueue.append(client)
             print("added user: " + str(client.playerid))
             self._makeUnrankedGame()  # tenta di creare una partita
         else:
@@ -29,16 +31,16 @@ class MatchMaker:
 
     def _makeUnrankedGame(self):
 
-        print("giocatori nella coda: " + str(len(self._unrankedplayerqueue)))
+        print("giocatori nella coda: " + str(len(self._unrankedplayerclientqueue)))
 
-        if len(self._unrankedplayerqueue) >= self._gamemode.numplayers:
+        if len(self._unrankedplayerclientqueue) >= self._gamemode.numplayers:
 
             newroom: PlayerRoom = PlayerRoom()
 
             clientproxies: list = list()
 
             for i in range(0, self._gamemode.numplayers):
-                client: Client = self._unrankedplayerqueue.pop(0)
+                client: Client = self._unrankedplayerclientqueue.pop(0)
                 player: Player = self._playerbinder.getPlayerByID(client.playerid)
                 newroom.join(player)
                 clientproxies.append(client)
