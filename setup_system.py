@@ -3,14 +3,14 @@ from foundations.dao.idaoabstractfactory import IDAOAbstractFactory
 from foundations.dao.imodedao import IModeDAO
 from foundations.dao.iplayerdao import IPlayerDAO
 from foundations.geometry.shapedimension import Dimension
-from foundations.inversionofcontrol.dicontainer import DepInjContainer
+from foundations.inversionofcontrol.ioccontainer import InversionOfControlContainer
 from model.gamemanageusecase.characters.bobdescription import BobDescription
 from model.gamemanageusecase.modes.mode import GameMode
 from model.gamemanageusecase.players.player import Player
 
 if __name__ == "__main__":
     # inizializzazione container IoC
-    container: DepInjContainer = DepInjContainer().init("etc/config.json")
+    container: InversionOfControlContainer = InversionOfControlContainer().init("etc/config.json")
 
     # inizializzazione database
     daofactory: IDAOAbstractFactory = container.getObject("daofactory")

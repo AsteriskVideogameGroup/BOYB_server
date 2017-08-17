@@ -2,14 +2,14 @@ from control.gamemanageusecase.matchmakinghandler import MatchMakingHandler
 from foundations.dao.ibobdescriptiondao import IBobDescriptionDAO
 from foundations.dao.idaoabstractfactory import IDAOAbstractFactory
 from foundations.dao.imodedao import IModeDAO
-from foundations.inversionofcontrol.dicontainer import DepInjContainer
+from foundations.inversionofcontrol.ioccontainer import InversionOfControlContainer
 from foundations.network.corba.corbamanagerfactory import CorbaManagerFactory
 from foundations.network.corba.icorbamanager import ICorbaManager
 
 if __name__ == "__main__":
 
     # inizializzazione container IoC
-    container: DepInjContainer = DepInjContainer().init("etc/config.json")
+    container: InversionOfControlContainer = InversionOfControlContainer().init("etc/config.json")
 
     # inizializzazione comunicazione di rete CORBA
     corbafactory: CorbaManagerFactory = container.getObject("corbamangerfactory")

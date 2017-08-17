@@ -2,10 +2,10 @@ import json
 from importlib import import_module
 from typing import Dict
 
-from foundations.inversionofcontrol.idicontainer import IDependencyInjectionContainer
+from foundations.inversionofcontrol.iioccontainer import IIoCContainer
 
 
-class DepInjContainer(IDependencyInjectionContainer):
+class InversionOfControlContainer(IIoCContainer):
 
     _MODULENAME: str = "module"
     _CLASSTOIMPORT: str = "class"
@@ -31,7 +31,7 @@ class DepInjContainer(IDependencyInjectionContainer):
 
         return returnobj
 
-    def init(self, configpath: str) -> IDependencyInjectionContainer:
+    def init(self, configpath: str) -> IIoCContainer:
         self._configpath = configpath
 
         # lettura da file di configurazione
@@ -59,19 +59,19 @@ class DepInjContainer(IDependencyInjectionContainer):
     def _build(self, beanname: str, bean: Dict[str, any]):
 
         # inserimento dell'oggetto nella lista
-        modulo: str = bean[DepInjContainer._MODULENAME]
-        classe: str = bean[DepInjContainer._CLASSTOIMPORT]
+        modulo: str = bean[InversionOfControlContainer._MODULENAME]
+        classe: str = bean[InversionOfControlContainer._CLASSTOIMPORT]
         imported = import_module(modulo)
         classtoinstantiate = getattr(imported, classe)
         newinstance: object = classtoinstantiate()
         self._objects[beanname] = newinstance
 
         # fill degli attributi dell'oggetto appena creato
-        for dependency in bean[DepInjContainer._PROPERTYDEFINITION]:
+        for dependency in bean[InversionOfControlContainer._PROPERTYDEFINITION]:
             dependency: Dict[str, str]
 
-            isvaluesetter: bool = DepInjContainer._PROPERTYPRIMITIVEVALUE in dependency
-            isdependencysetter: bool = DepInjContainer._OBJECTIDREFERENCE in dependency
+            isvaluesetter: bool = InversionOfControlContainer._PROPERTYPRIMITIVEVALUE in dependency
+            isdependencysetter: bool = InversionOfControlContainer._OBJECTIDREFERENCE in dependency
 
             if not (isdependencysetter or isvaluesetter):
                 raise Exception("Not valid setter format")
@@ -79,18 +79,18 @@ class DepInjContainer(IDependencyInjectionContainer):
             # se si sta assegnando un dato primitivo
             if isvaluesetter:
 
-                setattr(newinstance, dependency[DepInjContainer._PROPERTYNAME], dependency[DepInjContainer._PROPERTYPRIMITIVEVALUE])
+                setattr(newinstance, dependency[InversionOfControlContainer._PROPERTYNAME], dependency[InversionOfControlContainer._PROPERTYPRIMITIVEVALUE])
 
             # se sis sta assegnando una dipendenza ad un altro bean
             else:
-                objreferred: object = self._objects.get(dependency[DepInjContainer._OBJECTIDREFERENCE], None)
+                objreferred: object = self._objects.get(dependency[InversionOfControlContainer._OBJECTIDREFERENCE], None)
 
                 # se non è stato già creato l'oggetto da assegnare
                 if objreferred is None:
-                    refname: str = dependency[DepInjContainer._OBJECTIDREFERENCE]
+                    refname: str = dependency[InversionOfControlContainer._OBJECTIDREFERENCE]
                     objreferred: object = self._build(refname, self._configcontent.get(refname))
 
-                setattr(newinstance, dependency[DepInjContainer._PROPERTYNAME], objreferred)
+                setattr(newinstance, dependency[InversionOfControlContainer._PROPERTYNAME], objreferred)
 
         return newinstance
 

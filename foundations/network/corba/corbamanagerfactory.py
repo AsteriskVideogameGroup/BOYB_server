@@ -1,5 +1,4 @@
 from foundations.network.corba.icorbamanager import ICorbaManager
-from foundations.network.corba.pyrocorbamanager import PyroCorbaManager
 from foundations.oophelpers.singleton import SingletonMetaclass
 
 
