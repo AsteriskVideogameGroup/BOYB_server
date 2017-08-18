@@ -1,10 +1,10 @@
 import math
 
 from foundations.geometry.cartesianposition import Position
-from model.gamemanageusecase.objects.obstacles.idestructibleobstacle import IDestructibleObstacle
+from model.gamemanageusecase.objects.obstacles.iundestructibleobstacle import IUndestructibleObstacle
 
 
-class ClassicUndestructibleObstacle(IDestructibleObstacle):
+class ClassicUndestructibleObstacle(IUndestructibleObstacle):
     def __init__(self):
         self._position = None
 

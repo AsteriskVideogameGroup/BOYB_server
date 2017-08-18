@@ -1,5 +1,5 @@
 from foundations.oophelpers.singleton import SingletonMetaclass
-from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposal import IMapElementDisposalStrategy
+from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposalstrategy import IMapElementDisposalStrategy
 
 # possibili strategy
 from model.gamemanageusecase.map.elementdispositionutility.classicmapelementdisposalstrategy import \

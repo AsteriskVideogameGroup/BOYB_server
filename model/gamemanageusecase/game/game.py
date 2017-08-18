@@ -1,7 +1,7 @@
 import uuid
 
 from model.gamemanageusecase.characters.bob import Bob
-from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposal import IMapElementDisposalStrategy
+from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposalstrategy import IMapElementDisposalStrategy
 from model.gamemanageusecase.map.elementdispositionutility.mapelementdisposalfactory import MapElementDisposalFactory
 from model.gamemanageusecase.map.map import Map
 from model.gamemanageusecase.modes.mode import GameMode

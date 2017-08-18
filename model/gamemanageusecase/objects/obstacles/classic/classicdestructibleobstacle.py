@@ -3,6 +3,7 @@ import copy
 from foundations.geometry.cartesianposition import Position
 from model.gamemanageusecase.objects.obstacles.idestructibleobstacle import IDestructibleObstacle
 
+
 class ClassicDestructibleObstacle(IDestructibleObstacle):
     def __init__(self):
         self._position: Position = None

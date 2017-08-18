@@ -9,11 +9,11 @@ class ObjectFactoryProvider(metaclass=SingletonMetaclass):
     """"""
 
     def __init__(self):
-        self._builtstrategies: dict = dict()
+        self._factories: dict = dict()
 
     def getMapObjectFactory(self, factoryid: str) -> IObjectAbstractFactory:
 
-        factory: IObjectAbstractFactory = self._builtstrategies.get(factoryid)
+        factory: IObjectAbstractFactory = self._factories.get(factoryid)
 
         if factory is None:
             strategytoinstantiale = globals()[factoryid]
@@ -22,6 +22,6 @@ class ObjectFactoryProvider(metaclass=SingletonMetaclass):
             if not isinstance(factory, IObjectAbstractFactory):
                 raise AttributeError(factoryid + " is not a valid object factory")
 
-            self._builtstrategies[factoryid] = factory
+            self._factories[factoryid] = factory
 
         return factory

@@ -40,7 +40,7 @@ class GameHandler:
         steptime: float = 0.1
         aweitedtime: float = 0
 
-        numplayers: int = self._currentgame.players.lenght
+        numplayers: int = self._currentgame.players.numplayers
 
         loopcondition: bool = True
         someonehasntabob: bool = True

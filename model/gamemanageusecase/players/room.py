@@ -14,7 +14,7 @@ class PlayerRoom:
         return self._players.pop(playerid)
 
     @property
-    def lenght(self):
+    def numplayers(self):
         return len(self._players)
 
     @property

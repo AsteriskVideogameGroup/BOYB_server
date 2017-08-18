@@ -5,7 +5,7 @@ import math
 
 from foundations.geometry.cartesianposition import Position
 from foundations.geometry.shapedimension import Dimension
-from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposal import IMapElementDisposalStrategy
+from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposalstrategy import IMapElementDisposalStrategy
 from model.gamemanageusecase.map.map import Map
 from model.gamemanageusecase.objects.obstacles.idestructibleobstacle import IDestructibleObstacle
 

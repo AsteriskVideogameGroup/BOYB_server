@@ -15,10 +15,6 @@ class MatchMakingHandler(metaclass=SingletonMetaclass):
         self._matchmakingfactory: MatchMakerFactory = None
         self._clientsregister: ClientsRegister = None
 
-    '''def makeNewGame(self, client: Client, modeid: str, isranked: bool):
-        matchm: MatchMaker = MatchMakerFactory().getMatchMaker(modeid)  # retrieve del matchmaker di modalità
-        matchm.enqueuePlayer(client, isranked)'''
-
     def makeNewGame(self, clientid: str, modeid: str, isranked: bool):
         matchm: MatchMaker = self._matchmakingfactory.getMatchMaker(modeid)  # retrieve del matchmaker di modalità
         client: Client = self._clientsregister.get(clientid)
