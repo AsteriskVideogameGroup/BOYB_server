@@ -29,4 +29,3 @@ if __name__ == "__main__":
     handlername: str = "matchmakinghandler"
     matchmakinghandler: MatchMakingHandler = container.getObject(handlername)
     corbamanger.remotize(matchmakinghandler, handlername)
-
