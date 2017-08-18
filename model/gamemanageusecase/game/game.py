@@ -1,11 +1,12 @@
 import uuid
 
 from model.gamemanageusecase.characters.bob import Bob
-from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposalstrategy import IMapElementDisposalStrategy
+from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposalstrategy import \
+    IMapElementDisposalStrategy
 from model.gamemanageusecase.map.elementdispositionutility.mapelementdisposalfactory import MapElementDisposalFactory
 from model.gamemanageusecase.map.map import Map
 from model.gamemanageusecase.modes.mode import GameMode
-from model.gamemanageusecase.objects.factories.iobjectrabstractfactory import IObjectAbstractFactory
+from model.gamemanageusecase.objects.iobjectrabstractfactory import IObjectAbstractFactory
 from model.gamemanageusecase.objects.objectfactoryprovider import ObjectFactoryProvider
 from model.gamemanageusecase.players.room import PlayerRoom
 

@@ -47,7 +47,7 @@ if __name__ == "__main__":
     maxplayers: int = 4
     secgameduration: int = 300
     mapelementdisposerid: str = "ClassicMapElementDisposalStrategy"
-    objectfactoryid: str = "ClassicObjectFactory"
+    objectfactoryid: str = "classic_factory"
     mode: GameMode = GameMode(name, mapdimensions, maxplayers, secgameduration, mapelementdisposerid, objectfactoryid)
 
     # data access objects

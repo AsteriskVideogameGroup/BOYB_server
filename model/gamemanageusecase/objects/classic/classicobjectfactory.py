@@ -1,7 +1,7 @@
-from model.gamemanageusecase.objects.factories.iobjectrabstractfactory import IObjectAbstractFactory
-from model.gamemanageusecase.objects.obstacles.classic.classicdestructibleobstacle import ClassicDestructibleObstacle
-from model.gamemanageusecase.objects.obstacles.classic.classicundestructibleobstacle import \
+from model.gamemanageusecase.objects.classic.classicdestructibleobstacle import ClassicDestructibleObstacle
+from model.gamemanageusecase.objects.classic.classicundestructibleobstacle import \
     ClassicUndestructibleObstacle
+from model.gamemanageusecase.objects.iobjectrabstractfactory import IObjectAbstractFactory
 from model.gamemanageusecase.objects.obstacles.idestructibleobstacle import IDestructibleObstacle
 from model.gamemanageusecase.objects.obstacles.iundestructibleobstacle import IUndestructibleObstacle
 

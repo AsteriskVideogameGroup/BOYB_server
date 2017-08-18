@@ -120,6 +120,25 @@
         "ref": "bobcatalog"
       }
     ]
+  },
+
+  "objectfacprovider": {
+    "module": "model.gamemanageusecase.objects.objectfactoryprovider",
+    "class": "ObjectFactoryProvider",
+    "properties" : [
+      {
+        "name": "factories",
+        "ref": {
+          "classic_factory": "classicobjfactory"
+        }
+      }
+    ]
+  },
+
+  "classicobjfactory": {
+    "module": "model.gamemanageusecase.objects.classic.classicobjectfactory",
+    "class": "ClassicObjectFactory",
+    "properties" : []
   }
 
 }
