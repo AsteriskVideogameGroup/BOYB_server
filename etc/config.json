@@ -139,6 +139,25 @@
     "module": "model.gamemanageusecase.objects.classic.classicobjectfactory",
     "class": "ClassicObjectFactory",
     "properties" : []
+  },
+
+  "classicdisposalstrategy": {
+    "module": "model.gamemanageusecase.map.elementdispositionutility.classicmapelementdisposalstrategy",
+    "class": "ClassicMapElementDisposalStrategy",
+    "properties" : []
+  },
+
+  "mapdisposalstrategy": {
+    "module": "model.gamemanageusecase.map.elementdispositionutility.mapelementdisposalfactory",
+    "class": "MapElementDisposalFactory",
+    "properties" : [
+      {
+        "name": "strategies",
+        "ref": {
+          "classic_strategy": "classicdisposalstrategy"
+        }
+      }
+    ]
   }
 
 }

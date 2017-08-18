@@ -46,7 +46,7 @@ if __name__ == "__main__":
     mapdimensions: Dimension = Dimension(5, 5)
     maxplayers: int = 4
     secgameduration: int = 300
-    mapelementdisposerid: str = "ClassicMapElementDisposalStrategy"
+    mapelementdisposerid: str = "classic_strategy"
     objectfactoryid: str = "classic_factory"
     mode: GameMode = GameMode(name, mapdimensions, maxplayers, secgameduration, mapelementdisposerid, objectfactoryid)
 

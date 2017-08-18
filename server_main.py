@@ -5,6 +5,9 @@ from foundations.persistence.imodedao import IModeDAO
 from foundations.inversionofcontrol.ioccontainer import InversionOfControlContainer
 from foundations.network.corba.corbamanagerfactory import CorbaManagerFactory
 from foundations.network.corba.icorbamanager import ICorbaManager
+from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposalstrategy import \
+    IMapElementDisposalStrategy
+from model.gamemanageusecase.map.elementdispositionutility.mapelementdisposalfactory import MapElementDisposalFactory
 from model.gamemanageusecase.objects.iobjectrabstractfactory import IObjectAbstractFactory
 from model.gamemanageusecase.objects.objectfactoryprovider import ObjectFactoryProvider
 
@@ -23,9 +26,9 @@ if __name__ == "__main__":
     daofactory.init()'''
 
     # TODO test
-    oprov: ObjectFactoryProvider = container.getObject("objectfacprovider")
-    f: IObjectAbstractFactory = oprov.getMapObjectFactory("classic_factory")
-    print(f.getDestructibleObstacles())
+    oprov: MapElementDisposalFactory = container.getObject("mapdisposalstrategy")
+    f: IMapElementDisposalStrategy = oprov.getMapElementDisposer("classic_strategy")
+    print(f)
     # TODO test
 
     '''# inizializzazione ascoltatore di matchaking

@@ -5,18 +5,14 @@ import math
 
 from foundations.geometry.cartesianposition import Position
 from foundations.geometry.shapedimension import Dimension
-from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposalstrategy import IMapElementDisposalStrategy
+from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposalstrategy import \
+    IMapElementDisposalStrategy
 from model.gamemanageusecase.map.map import Map
 from model.gamemanageusecase.objects.obstacles.idestructibleobstacle import IDestructibleObstacle
 
 
 class ClassicMapElementDisposalStrategy(IMapElementDisposalStrategy):
     def disposeInitialMapState(self, maptosetup: Map):
-
-        #print(maptosetup.bobs)
-        #print(maptosetup.destructibiles)
-        #print(maptosetup.undescructibles)
-
 
         # disponi ostacoli indistruttibili
         maptosetup.undescructibles = self._disposeUndestrObstacles(maptosetup.undescructibles, maptosetup.dimensions)
@@ -27,7 +23,6 @@ class ClassicMapElementDisposalStrategy(IMapElementDisposalStrategy):
         # disponi ostacoli distruttibili
         maptosetup.destructibiles = self._disposeDestrObstacles(maptosetup.destructibiles, maptosetup.dimensions,
                                                                 maptosetup.bobs)
-
 
     def _disposeUndestrObstacles(self, undstrobstacles: list, dim: Dimension) -> list:
         """
@@ -293,9 +288,6 @@ class ClassicMapElementDisposalStrategy(IMapElementDisposalStrategy):
                             destructibleelementslist.append(newobstacle)
 
         return destructibleelementslist
-
-
-
 
     # TODO controllare quando ci saranno i powerup
     '''
