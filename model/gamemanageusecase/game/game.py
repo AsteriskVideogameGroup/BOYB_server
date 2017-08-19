@@ -48,11 +48,10 @@ class Game:
     def prepareGameStart(self):
 
         # algoritmo di disposizione degli oggetti e bob sulla mappa
-        disposer: IMapElementDisposalStrategy = \
-            MapElementDisposalFactory().getMapElementDisposer(self.mode.mapelementdisposer)
+        disposer: IMapElementDisposalStrategy = self._mode.mapelementdisposer
 
         # factory per la generazione degli oggetti
-        objfactory: IObjectAbstractFactory = ObjectFactoryProvider().getMapObjectFactory(self.mode.objectprovider)
+        objfactory: IObjectAbstractFactory = self._mode.objectfactory
 
         # aggiunti tutti gli ostacoli alla mappa
         self.map.addDestructibleObstacles(objfactory.getDestructibleObstacles())

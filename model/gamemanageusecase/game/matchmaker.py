@@ -6,6 +6,8 @@ from foundations.network.corba.corbamanagerfactory import CorbaManagerFactory
 from foundations.network.corba.icorbamanager import ICorbaManager
 from model.gamemanageusecase.characters.bobbuilder import BobBuilder
 from model.gamemanageusecase.game.game import Game
+from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposalstrategy import \
+    IMapElementDisposalStrategy
 from model.gamemanageusecase.modes.mode import GameMode
 from model.gamemanageusecase.players.player import Player
 from model.gamemanageusecase.players.playerbinder import PlayerBinder

@@ -18,9 +18,9 @@ class ModeDAO(IModeDAO):
             mapwidth=mode.mapdimension.width,
             mapheight=mode.mapdimension.height,
             gamedurationinseconds=mode.duration,
-            mapelementdisposer=mode.mapelementdisposer,
+            mapelementdisposer=mode.mapelementdisposerid,
             maxplayers=mode.numplayers,
-            objectfactoryid=mode.objectprovider
+            objectfactoryid=mode.objectproviderid
         )
 
         modetosave.save()

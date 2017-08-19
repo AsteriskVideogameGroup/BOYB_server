@@ -34,6 +34,14 @@
       {
         "name": "daofactory",
         "ref": "daofactory"
+      },
+      {
+        "name": "elementdisposerfactory",
+        "ref": "mapdisposalfactory"
+      },
+      {
+        "name": "objectfactoryprovider",
+        "ref": "objectfacprovider"
       }
     ]
   },
@@ -147,7 +155,7 @@
     "properties" : []
   },
 
-  "mapdisposalstrategy": {
+  "mapdisposalfactory": {
     "module": "model.gamemanageusecase.map.elementdispositionutility.mapelementdisposalfactory",
     "class": "MapElementDisposalFactory",
     "properties" : [

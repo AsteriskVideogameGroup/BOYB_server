@@ -2,8 +2,10 @@ from foundations.network.corba.corbamanagerfactory import CorbaManagerFactory
 from foundations.oophelpers.singleton import SingletonMetaclass
 from model.gamemanageusecase.characters.bobbuilder import BobBuilder
 from model.gamemanageusecase.game.matchmaker import MatchMaker
+from model.gamemanageusecase.map.elementdispositionutility.mapelementdisposalfactory import MapElementDisposalFactory
 from model.gamemanageusecase.modes.mode import GameMode
 from model.gamemanageusecase.modes.modebuilder import ModeBuilder
+from model.gamemanageusecase.objects.objectfactoryprovider import ObjectFactoryProvider
 from model.gamemanageusecase.players.playerbinder import PlayerBinder
 
 
@@ -63,3 +65,5 @@ class MatchMakerFactory(metaclass=SingletonMetaclass):
     @playerbinder.setter
     def playerbinder(self, binder: PlayerBinder) -> None:
         self._playerbinder = binder
+
+

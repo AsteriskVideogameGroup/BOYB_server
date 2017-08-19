@@ -1,4 +1,7 @@
 from foundations.geometry.shapedimension import Dimension
+from model.gamemanageusecase.map.elementdispositionutility.imapelementdisposalstrategy import \
+    IMapElementDisposalStrategy
+from model.gamemanageusecase.objects.iobjectrabstractfactory import IObjectAbstractFactory
 
 
 class GameMode:
@@ -8,8 +11,11 @@ class GameMode:
         self._mapdimension: Dimension = mapdimensions
         self._maxplayers: int = maxplayers
         self._gamedurationinseconds: int = secgameduration
-        self._mapelementdisposer: str = mapelementdisposerid
+        self._mapelementdisposerid: str = mapelementdisposerid
         self._objectfactoryid: str = objectfactoryid
+
+        self._objectfactory: IObjectAbstractFactory = None
+        self._mapelementdisposer: IMapElementDisposalStrategy = None
 
     @property
     def name(self) -> str:
@@ -20,11 +26,11 @@ class GameMode:
         return self._mapdimension
 
     @property
-    def mapelementdisposer(self) -> str:
-        return self._mapelementdisposer
+    def mapelementdisposerid(self) -> str:
+        return self._mapelementdisposerid
 
     @property
-    def objectprovider(self) -> str:
+    def objectproviderid(self) -> str:
         return self._objectfactoryid
 
     @property
@@ -34,6 +40,22 @@ class GameMode:
     @property
     def duration(self):
         return self._gamedurationinseconds
+
+    @property
+    def objectfactory(self):
+        return self._objectfactory
+
+    @objectfactory.setter
+    def objectfactory(self, value):
+        self._objectfactory = value
+
+    @property
+    def mapelementdisposer(self):
+        return self._mapelementdisposer
+
+    @mapelementdisposer.setter
+    def mapelementdisposer(self, value):
+        self._mapelementdisposer = value
 
     def __str__(self) -> str:
         return "MODALITA: \n" + \
