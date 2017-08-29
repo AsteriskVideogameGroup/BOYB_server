@@ -3,7 +3,6 @@ from foundations.persistence.idaoabstractfactory import IDAOAbstractFactory
 from foundations.inversionofcontrol.ioccontainer import InversionOfControlContainer
 from foundations.network.corba.corbamanagerfactory import CorbaManagerFactory
 from foundations.network.corba.icorbamanager import ICorbaManager
-from model.gamemanageusecase.modes.modebuilder import ModeBuilder
 
 if __name__ == "__main__":
 

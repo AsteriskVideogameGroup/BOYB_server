@@ -26,14 +26,14 @@ if __name__ == "__main__":
     bobdescription.specialpower = "none"
     bobdescription.range = 1
 
-    bobdescription: BobDescription = BobDescription()
-    bobdescription.id = "king_bob"
-    bobdescription.damage = 1
-    bobdescription.baselives = 5
-    bobdescription.contemporarybombs = 1
-    bobdescription.speed = 6
-    bobdescription.specialpower = "none"
-    bobdescription.range = 2
+    otherdescription: BobDescription = BobDescription()
+    otherdescription.id = "king_bob"
+    otherdescription.damage = 1
+    otherdescription.baselives = 5
+    otherdescription.contemporarybombs = 1
+    otherdescription.speed = 6
+    otherdescription.specialpower = "none"
+    otherdescription.range = 2
 
     # creazione oggetti player da salvare nel DB
     player1: Player = Player("p1")
@@ -66,6 +66,7 @@ if __name__ == "__main__":
 
     # salvataggio bobdescriptor
     descriptiondao.save(bobdescription)
+    descriptiondao.save(otherdescription)
 
 
 
