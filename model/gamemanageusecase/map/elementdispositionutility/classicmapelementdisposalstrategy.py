@@ -77,7 +77,7 @@ class ClassicMapElementDisposalStrategy(IMapElementDisposalStrategy):
         examples: 6 BoBs on 7x5 map
 
          +---+---+---+---+---+---+---+
-         | X |   |   | X |   |   | X |
+         | XY|   |   | X |   |   | X |
          +---+---+---+---+---+---+---+
          |   |   |   |   |   |   |   |
          +---+---+---+---+---+---+---+
@@ -85,10 +85,11 @@ class ClassicMapElementDisposalStrategy(IMapElementDisposalStrategy):
          +---+---+---+---+---+---+---+
          |   |   |   |   |   |   |   |
          +---+---+---+---+---+---+---+
-         | X |   |   | X |   |   | X |
+         | X |   |   | X |   |   | XY|
          +---+---+---+---+---+---+---+
 
          X = BoB placed
+         Y = BoB placed in case of just 2 players
 
         :param bobs: BoBs that must be placed
         :param dim: Map dimensions
@@ -96,7 +97,11 @@ class ClassicMapElementDisposalStrategy(IMapElementDisposalStrategy):
 
         bobtoplace = len(bobs)
 
-        if bobtoplace > 0:
+        if bobtoplace == 2:
+            bobs[0].place(Position(1, 1))
+            bobs[1].place(Position(dim.width, dim.height))
+
+        elif bobtoplace > 0:
             width = dim.width
             height = dim.height
 
