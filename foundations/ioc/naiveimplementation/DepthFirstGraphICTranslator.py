@@ -1,10 +1,9 @@
 from typing import Dict, List
 
-from foundations.easy_dependency_injection.utils.ConfigFields import ConfigFields
-from foundations.easy_dependency_injection.utils.InjContentTranslator import InjContentTranslator
-from foundations.easy_dependency_injection.utils.InjectionSource import InjectionSource
-
 from foundations.ioc.utils import LibraryInporter
+from foundations.ioc.utils.ConfigFields import ConfigFields
+from foundations.ioc.utils.InjContentTranslator import InjContentTranslator
+from foundations.ioc.utils.InjectionSource import InjectionSource
 
 
 class DepthFirstGraphICTranslator(InjContentTranslator):
