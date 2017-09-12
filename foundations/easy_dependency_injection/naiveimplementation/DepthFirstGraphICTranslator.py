@@ -35,7 +35,9 @@ class DepthFirstGraphICTranslator(InjContentTranslator):
         if objectid is None:
             translated = self._buildAllObjects()
         else:
-            translated = self._buildObject(objectid, self._sourceContent.get(objectid))
+            requested = self._buildObject(objectid, self._sourceContent.get(objectid))
+            translated[objectid] = requested
+            translated = {**translated, **self._buildedObjects}  # concatena gli oggetti creati, se esistono
 
         self._clear()
 
@@ -53,7 +55,6 @@ class DepthFirstGraphICTranslator(InjContentTranslator):
                     self._buildObject(definitionid, definitioncontent)
 
         return self._buildedObjects
-
 
     def _buildObject(self, objname: str, definition: Dict[str, any]) -> object:
 
@@ -155,6 +156,3 @@ class DepthFirstGraphICTranslator(InjContentTranslator):
         self._objectBase = None
         self._sourceContent = None
         self._buildedObjects = dict()
-
-
-

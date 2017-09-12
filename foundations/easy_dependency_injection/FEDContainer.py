@@ -10,14 +10,23 @@ class FEDContainer:
         self._source: InjectionSource = source
         self._translatedObjects: Dict[str, object] = dict()
 
+        self._preloadNotLazyObjects()
+
     def getObject(self, objectid: str) -> object:
 
         requested = self._translatedObjects.get(objectid)
 
         if requested is None:
-            requested = self._objectTranslator.translate(self._source, objectid, self._translatedObjects)
+            requestedobjectbundle = self._objectTranslator.translate(self._source, objectid, self._translatedObjects)
+            self._translatedObjects = {**self._translatedObjects, **requestedobjectbundle}
+            requested = self._translatedObjects[objectid]
 
         return requested
+
+    def _preloadNotLazyObjects(self):
+        # fill with not lazy instantiated objects
+        notlazyobjects = self._objectTranslator.translate(self._source)
+        self._translatedObjects = {**self._translatedObjects, **notlazyobjects}
 
 
 
