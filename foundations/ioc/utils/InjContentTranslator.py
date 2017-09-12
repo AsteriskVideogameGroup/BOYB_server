@@ -1,8 +1,9 @@
 import abc
 from typing import Dict
 
-from foundations.easy_dependency_injection.utils import LibraryInporter
 from foundations.easy_dependency_injection.utils.InjectionSource import InjectionSource
+
+from foundations.ioc.utils import LibraryInporter
 
 
 class InjContentTranslator(metaclass=abc.ABCMeta):

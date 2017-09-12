@@ -5,13 +5,13 @@ from foundations.easy_dependency_injection.naiveimplementation.JSONSource import
 from foundations.easy_dependency_injection.naiveimplementation.NaiveLibraryImporter import NaiveLibraryImporter
 from foundations.easy_dependency_injection.utils.InjContentTranslator import InjContentTranslator
 from foundations.easy_dependency_injection.utils.InjectionSource import InjectionSource
-from foundations.easy_dependency_injection.utils.LibraryInporter import LibraryImporter
+
+from foundations.geometry.shapedimension import Dimension
+from foundations.ioc.utils.LibraryInporter import LibraryImporter
 from foundations.persistence.ibobdescriptiondao import IBobDescriptionDAO
 from foundations.persistence.idaoabstractfactory import IDAOAbstractFactory
 from foundations.persistence.imodedao import IModeDAO
 from foundations.persistence.iplayerdao import IPlayerDAO
-from foundations.geometry.shapedimension import Dimension
-from foundations.inversionofcontrol.ioccontainer import InversionOfControlContainer
 from model.gamemanageusecase.characters.bobdescription import BobDescription
 from model.gamemanageusecase.modes.mode import GameMode
 from model.gamemanageusecase.players.player import Player

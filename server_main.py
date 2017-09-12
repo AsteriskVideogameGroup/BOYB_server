@@ -1,4 +1,3 @@
-from control.gamemanageusecase.matchmakinghandler import MatchMakingHandler
 from foundations.easy_dependency_injection.FEDContainer import FEDContainer
 from foundations.easy_dependency_injection.naiveimplementation.DepthFirstGraphICTranslator import \
     DepthFirstGraphICTranslator
@@ -6,11 +5,12 @@ from foundations.easy_dependency_injection.naiveimplementation.JSONSource import
 from foundations.easy_dependency_injection.naiveimplementation.NaiveLibraryImporter import NaiveLibraryImporter
 from foundations.easy_dependency_injection.utils.InjContentTranslator import InjContentTranslator
 from foundations.easy_dependency_injection.utils.InjectionSource import InjectionSource
-from foundations.easy_dependency_injection.utils.LibraryInporter import LibraryImporter
-from foundations.persistence.idaoabstractfactory import IDAOAbstractFactory
-from foundations.inversionofcontrol.ioccontainer import InversionOfControlContainer
+
+from control.gamemanageusecase.matchmakinghandler import MatchMakingHandler
+from foundations.ioc.utils.LibraryInporter import LibraryImporter
 from foundations.network.corba.corbamanagerfactory import CorbaManagerFactory
 from foundations.network.corba.icorbamanager import ICorbaManager
+from foundations.persistence.idaoabstractfactory import IDAOAbstractFactory
 
 if __name__ == "__main__":
 

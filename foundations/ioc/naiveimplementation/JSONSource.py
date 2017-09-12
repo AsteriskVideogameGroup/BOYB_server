@@ -2,7 +2,8 @@ import json
 from typing import Dict
 
 from foundations.easy_dependency_injection.utils.DataSource import DataSource
-from foundations.easy_dependency_injection.utils.InjectionSource import InjectionSource
+
+from foundations.ioc.utils.InjectionSource import InjectionSource
 
 
 class JSONSource(InjectionSource, DataSource):

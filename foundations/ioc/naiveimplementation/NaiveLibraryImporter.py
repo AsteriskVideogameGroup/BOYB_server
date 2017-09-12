@@ -1,6 +1,6 @@
 from importlib import import_module
 
-from foundations.easy_dependency_injection.utils.LibraryInporter import LibraryImporter
+from foundations.ioc.utils.LibraryInporter import LibraryImporter
 
 
 class NaiveLibraryImporter(LibraryImporter):

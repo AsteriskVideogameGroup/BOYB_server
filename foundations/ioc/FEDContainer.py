@@ -1,7 +1,8 @@
 from typing import Dict
 
-from foundations.easy_dependency_injection.utils.InjContentTranslator import InjContentTranslator
 from foundations.easy_dependency_injection.utils.InjectionSource import InjectionSource
+
+from foundations.ioc.utils.InjContentTranslator import InjContentTranslator
 
 
 class FEDContainer:
